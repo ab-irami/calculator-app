@@ -1,0 +1,61 @@
+:root {
+    --bg-theme: hsl(268, 75%, 9%);
+    --bg-toggle-keypad: hsl(268, 71%, 12%);
+    --bg-del-reset-key: hsl(268, 47%, 21%);
+    --key-shadow-del-reset: hsl(290, 70%, 36%);
+    --bg-keys: hsl(281, 89%, 26%);
+    --key-shadow-keys: hsl(285, 91%, 52%);
+    --bg-result-toggle-key:  hsl(176, 100%, 44%);
+    --key-shadow-result: hsl(177, 92%, 70%);
+    --text-color: hsl(52, 100%, 62%);
+    --text-del-result-color: hsl(0, 0, 100%);
+    --text-result-color: hsl(198, 20%, 13%);
+}
+
+body {
+    background-color: var(--bg-theme);
+}
+
+label, h6 {
+    color: var(--text-color);
+}
+
+.header > h1 {
+    color: var(--text-color);
+}
+
+.input {
+    background-color: var(--bg-toggle-keypad);
+}
+
+input:checked {
+    background-color: var(--bg-result-toggle-key);
+}
+
+.user-input {
+    background-color: var(--bg-toggle-keypad);
+    color: var(--text-color);
+}
+
+.grid-container {
+    background-color: var(--bg-toggle-keypad);
+}
+
+.grid-container > button {
+    background-color: var(--bg-keys);
+    color: var(--text-color);
+    box-shadow: 0 5px var(--key-shadow-keys);
+}
+
+button:nth-child(17), button:nth-child(4) {
+    background-color: var(--bg-del-reset-key);
+    box-shadow: 0 5px var(--key-shadow-del-reset);
+    color: white;
+}
+
+button:nth-child(18) {
+    background-color: var(--bg-result-toggle-key);
+    box-shadow: 0 5px var(--key-shadow-result);
+    color: var(--text-result-color)
+}
+

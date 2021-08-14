@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;  
+    font-family: 'Spartan', sans-serif;  
+    font-size: 32px;
+}
+
+:root {
+    --bg-theme: hsl(222, 26%, 31%);
+    --bg-toggle-keypad: hsl(223, 31%, 20%);
+    --bg-screen: hsl(224, 36%, 15%);
+    --bg-del-reset-key:  hsl(225, 21%, 49%);
+    --key-shadow-del-reset: hsl(224, 28%, 35%);
+    --bg-keys: hsl(30, 25%, 89%);
+    --key-shadow-keys:  hsl(28, 16%, 65%);
+    --bg-result-toggle-key: hsl(6, 63%, 50%);
+    --key-shadow-result: hsl(6, 70%, 34%); 
+    --text-color: hsl(221, 14%, 31%); 
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg-theme);
+}
+
+label, h6 {
+    font-size: 13px;
+    color: var(--bg-keys);
+    position: relative;
+    left: 70px;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    margin: 50px 0 10px;
+    position: relative;
+}
+
+.header > h1 {
+    color: var(--bg-keys);
+    position: absolute;
+    left: -90px;
+    top: -15px;
+} 
+
+.header > h6 {
+    align-self: center;
+}
+
+.input {
+    height: 30px;
+    width: 80px;
+    border-radius: 30px;
+    background-color: var(--bg-toggle-keypad);
+    position: relative;
+    left: 90px;
+}
+  
+[id="theme1"], [id="theme2"], [id="theme3"] {
+    appearance: none;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 30px;
+    top: 7px;
+    transition: 0.5s;
+}
+  
+[id="theme1"] { 
+    left: 10px;
+}
+  
+[id="theme2"] {
+    left: 33px;
+}
+  
+[id="theme3"] {
+    left: 55px;
+}
+  
+input:checked {
+    background-color: var(--bg-result-toggle-key);
+}
+  
+label {
+    top: -40px;
+}
+  
+label[for="theme1"] {
+    left: 13px;
+}
+  
+label[for="theme2"] {
+    left: 20px;
+}
+  
+label[for="theme3"] {
+    left: 26px;
+}
+
+.user-input {
+    background-color: var(--bg-screen);
+    height: 80px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: 10px;
+    color: white;
+    overflow: hidden;
+}
+
+.user-input > .previous-operand {
+    font-size: 15px;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(5, 70px);
+    background-color: var(--bg-toggle-keypad);
+    padding: 15px 10px;
+    border-radius: 10px;
+}
+
+.grid-container > button {
+    margin: 0 8px;
+    padding: 8px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--bg-keys);
+    color: var(--text-color);
+    box-shadow: 0 5px var(--key-shadow-keys);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+.column-span {
+    grid-column: span 2;
+}
+
+button:nth-child(17), button:nth-child(4) {
+    background-color: var(--bg-del-reset-key);
+    box-shadow: 0 5px var(--key-shadow-del-reset);
+    color: var(--bg-keys);
+    font-size: 18px;
+    padding: 17px 0;
+}
+
+button:nth-child(18) {
+    background-color: var(--bg-result-toggle-key);
+    box-shadow: 0 5px var(--key-shadow-result);
+    color: white;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center; 
+    margin-top: 50px;
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+    font-size: 11px;
+}
+
+@media only screen and (min-width: 1200px) {
+    .calculator {
+        width: 350px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(4, 82px);
+        grid-template-rows: repeat(5, 65px);
+    }
+    
+    .grid-container > button {
+        margin: 0 8px;
+        padding: 5px 0;
+    }
+
+    button:nth-child(17), button:nth-child(4) {
+        padding: 13px 0;
+    }    
+}
