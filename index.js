@@ -73,12 +73,17 @@ function calculatorOperation() {
     currentOperand = result;
     operation = undefined;
     prevOperand = "";
+    prevOperandText.innerText = "";
 }
 
 function displayNum() {
     currentOperandText.innerText = currentOperand.toLocaleString("en");
-    prevOperandText.innerText = prevOperand;
-}
+    if(operation !== undefined) {
+        prevOperandText.innerText = `${prevOperand} ${operation.toString("en")}`;
+    } else {
+        prevOperandText.innerText = prevOperand;
+    }
+}   
 
 toggleBtn.forEach(btn => {
     btn.addEventListener("click", () => {
